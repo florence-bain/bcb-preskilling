@@ -246,38 +246,45 @@ describe("What is typescript?", () => {
     Uncomment the following tests and make them pass.
   */
 
-  // it("has interfaces 1", () => {
-  //   interface PersonModel {
-  //     setName(name: string): void;
-  //     getName(): string;
-  //   }
-  //
-  //   class Person implements PersonModel {
-  //
-  //   }
-  //
-  //   let person = new Person();
-  //   person.setName("Kay");
-  //   expect(person.getName()).toEqual("Kay");
-  // });
+  it("has interfaces 1", () => {
+    interface PersonModel {
+      setName(name: string): void;
+      getName(): string;
+    }
+
+    class Person implements PersonModel {
+      name?: string;
+      setName(name: string): string {
+        return name;
+      }
+
+      getName(): string {
+        return this.name;
+      }
+    }
+
+    let person = new Person();
+    person.setName("Kay");
+    expect(person.getName()).toEqual("Kay");
+  });
 
   // it("has interfaces 2", () => {
   //   // This is a little trickier.
-  //
+
   //   interface Equatable {
   //     equals(other: Equatable): boolean;
   //   }
-  //
+
   //   class Cat implements Equatable {
   //     // Note that instance variables need to be defined in the class in order
   //     // to let you access them using `this.variable`. Like this:
   //     name: string;
-  //
+
   //     constructor(name: string) {
   //       this.name = name;
   //     }
   //   }
-  //
+
   //   class Dog implements Equatable {
   //     // ...
   //   }
@@ -286,21 +293,21 @@ describe("What is typescript?", () => {
   //   let moggy2 = new Cat("Moggy");
   //   let felix = new Cat("Felix");
   //   let felixTheDog = new Dog("Felix");
-  //
+
   //   // Equatable objects should be equal to other objects if:
   //   //   - They are the same class (you can test this using `instanceof`)
   //   //     AND
   //   //   - They have the same name
   //   // Otherwise they are not equal.
-  //
+
   //   // Cats are equal to other cats with the same name
   //   expect(moggy.equals(moggy2)).toBeTruthy();
   //   expect(moggy2.equals(moggy)).toBeTruthy();
-  //
+
   //   // Cats aren't equal to other cats with different names
   //   expect(moggy.equals(felix)).toBeFalsy();
   //   expect(felix.equals(moggy)).toBeFalsy();
-  //
+
   //   // Cats aren't equal to dogs with the same name
   //   expect(felix.equals(felixTheDog)).toBeFalsy();
   //   expect(felixTheDog.equals(felix)).toBeFalsy();

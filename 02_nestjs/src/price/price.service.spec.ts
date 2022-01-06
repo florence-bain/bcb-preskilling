@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { HttpModule, HttpService } from '@nestjs/axios';
 import { ConfigModule } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
@@ -30,13 +31,13 @@ describe('PriceService', () => {
     };
 
     jest.spyOn(httpService, 'get').mockImplementation(() => of(fakeResponse));
-    let response = await service.getPrice('BTC', 'USD');
+    const response = await service.getPrice('BTC', 'USD');
     expect(response).toEqual(44.44);
     expect(httpService.get).toHaveBeenCalledWith(
       'https://min-api.cryptocompare.com/data/price',
       {
         params: {
-          apiKey: "1234",
+          apiKey: '1234',
           fsym: 'BTC',
           tsyms: 'USD',
         },

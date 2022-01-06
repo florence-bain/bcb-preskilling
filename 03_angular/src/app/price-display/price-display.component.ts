@@ -4,12 +4,12 @@ import { PriceService } from '../price.service';
 @Component({
   selector: 'price-display',
   templateUrl: './price-display.component.html',
-  styleUrls: ['./price-display.component.css']
+  styleUrls: ['./price-display.component.css'],
 })
 export class PriceDisplayComponent implements OnInit {
   @Input() from!: string;
   @Input() to!: string;
-  price!: number;
+  price?: number;
 
   constructor(private priceService: PriceService) {}
 
@@ -18,7 +18,7 @@ export class PriceDisplayComponent implements OnInit {
   }
 
   loadPriceData() {
-    this.priceService.getPrice(this.from, this.to).subscribe(price => {
+    this.priceService.getPrice(this.from, this.to).subscribe((price) => {
       this.price = price;
     });
   }

@@ -25,4 +25,10 @@ describe('PriceController', () => {
     let response = await controller.get('BTC', 'USD');
     expect(response).toEqual({ price: 44.44 });
   });
-});
+
+  it('returns mulitple values', async () => {
+    let result = await controller.get('BTC', 'USD', 'GBP' );
+    expect(result).toEqual({price: {BTC: {USD: 44.44, GBP: 34.44}}});
+
+  });
+};

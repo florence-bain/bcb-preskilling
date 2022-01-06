@@ -11,23 +11,29 @@ get started with the Typescript, unless you know it already.
 After this, work on the project below.
 
 > # Real-time Crypto Prices using NestJS and Angular
-> 
+>
 > Task: Create a client/server that provides a real time price stream for the
 > following coins [BTC,ETH,XRP,LTC,BCH,ETC] and their value in the following
 > currencies [USD,GBP,EUR,JPY,ZAR].
-> 
-> The project must be hosted on Github or Gitlab and CryptoCompare must be used
-> as the data source.
-> 
-> Requirements:
-> * Server: NestJS
-> * Client: Angular
-> * Testing
->
-> Nice to haves:
-> * History
-> * Filters
-> * WebSockets
+
+- set up the api
+- allow applicaton to return more than one price
+- allow application to take multiple currencies and return the exchange
+- set up the live stream so that the application(docs lack this info) refreshes if not create a conditional method/ loop to check if the prices have changes
+- > The project must be hosted on Github or Gitlab and CryptoCompare must be used
+  > as the data source.
+  >
+  > Requirements:
+  >
+  > - Server: NestJS
+  > - Client: Angular
+  > - Testing
+  >
+  > Nice to haves:
+  >
+  > - History
+  > - Filters
+  > - WebSockets
 
 There is a seed codebase in `02_nestjs` and `03_angular` to get you started and
 videos talking through the key points of the codebase
@@ -102,4 +108,3 @@ in with your coach if you are unsure.
   - [ ] Angular Services
   - [ ] Angular Routing
   - [ ] CSS in Angular
-
