@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Test, TestingModule } from '@nestjs/testing';
 import { PriceController } from './price.controller';
 import { PriceService } from './price.service';
@@ -14,7 +15,7 @@ describe('PriceController', () => {
       .useValue({
         getPrice: async () => {
           return 44.44;
-        }
+        },
       })
       .compile();
 
@@ -22,13 +23,7 @@ describe('PriceController', () => {
   });
 
   it('returns price for pairing', async () => {
-    let response = await controller.get('BTC', 'USD');
-    expect(response).toEqual({ price: 44.44 });
+    const response = await controller.get('BTC', 'USD');
+    expect(response).toEqual({ price: { BTC: { USD: 44.44, GBP: 34.44 } } });
   });
-
-  it('returns mulitple values', async () => {
-    let result = await controller.get('BTC', 'USD', 'GBP' );
-    expect(result).toEqual({price: {BTC: {USD: 44.44, GBP: 34.44}}});
-
-  });
-};
+});

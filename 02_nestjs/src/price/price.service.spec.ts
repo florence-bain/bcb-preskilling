@@ -34,7 +34,7 @@ describe('PriceService', () => {
     const response = await service.getPrice('BTC', 'USD');
     expect(response).toEqual(44.44);
     expect(httpService.get).toHaveBeenCalledWith(
-      'https://min-api.cryptocompare.com/data/price',
+      'https://min-api.cryptocompare.com/data/pricemulti',
       {
         params: {
           apiKey: '1234',

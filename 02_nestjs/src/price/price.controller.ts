@@ -10,9 +10,10 @@ export class PriceController {
   async get(
     @Query('from') from: string,
     @Query('to') to: string,
-  ): Promise<{ price: { [key: string]: number } }> {
+  ): Promise<{ priceValues: { [key: string]: number } }> {
     //look into Observable and our requirments
-    const price = await this.priceService.getPrice(from, to);
-    return { price };
+    // eslint-disable-next-line prefer-const
+    const priceValues = await this.priceService.getPrice(from, to);
+    return priceValues;
   }
 }
